@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2024 at 01:14 PM
+-- Generation Time: Apr 10, 2024 at 03:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -71,6 +71,91 @@ INSERT INTO `articles` (`id`, `headline`, `article`, `img_url`, `author_id`, `ca
 (24, 'The Link Between Teen Drug Overdose and Social Media', '<h1>The Link Between Teen Drug Overdose and Social Media</h1><p>Despite an overall decrease in drug use among teens compared to prior years, one startling trend accelerated – drug overdose deaths. According to the latest available data from the Centers for Disease Control and Prevention, 22 adolescents between the ages of 14 and 18 died of a drug overdose every week in 2022, a rate more than double that of 2019. Now the 3rd leading cause of pediatric deaths behind firearm-related injuries and motor vehicle collisions, drug overdoses in teens are driven largely by fentanyl, which has been implicated in 75% of adolescent overdose fatalities.</p><p>Why is this happening?</p><ul><li>Fake pills resembling some of the most common prescription drugs that adolescents experiment with (e.g., prescription painkillers like oxycodone and benzodiazepines such as xanax) are increasingly being laced with fentanyl.</li><li>Fentanyl is a highly potent opioid that can be lethal in very small quantities, especially for young people.</li><li>Teens may be unaware of the rise in fake and deadly pills that are being sold on the streets.</li><li>Accessing illicit – and potentially lethal – substances is easy for teens on social media</li></ul><p>How do you know if a young person whom you know or love is at risk? Studies have shown that there are three particularly vulnerable groups of young people:</p><ul><li>Teens who are not addicted to opioids but are experimenting with substances. They can end up unknowingly ingesting fake prescription drugs containing fentanyl.</li><li>Teens who have mental health difficulties and are seeking substances as a way of self-medicating their symptoms.</li><li>Adolescents who already have opioid addiction and are knowingly using opioids.</li></ul><h3>Steps You Can Take to Prevent Youth Overdose</h3><ul><li>Talk to your loved one about the risks associated with counterfeit pills and fentanyl. Avoid using fear tactics, but instead equip them with knowledge from valid sources such as the Drug Enforcement Agency, and empower them to use this knowledge combined with their best judgment to stay safe.</li><li>If you know a young person who is using drugs, advise them to: (1) carry Narcan and keep it in places where they spend most of their time, and (2) never use drugs alone, given the risk of overdose.</li><li>Since young people who overdose frequently get access to pills over social media, familiarize yourself with the emoji codes for buying and selling drugs.</li></ul>', 'id_24', '23', '3,5', '', 'March 12, 2024', 'March 12, 2024'),
 (25, 'The Recipe for Being Happy at Work', '<h1>The Recipe for Being Happy at Work</h1><p>Research in psychology has identified several core needs that pertain to humans generally, and how these needs can be satisfied or thwarted in the workplace. Unfortunately, simply identifying what people want and need at work doesn’t automatically translate into a healthy work setting, for several reasons. Sometimes an individual’s attempts to meet their unique needs are disruptive to the group. Many times the structure, history, and goals of the organization are at odds with providing an ideal context in which people can work. And any time people come together on a regular basis, group dynamics can get in the way of optimal work conditions.</p><p>So what is the value in articulating a recipe for work satisfaction? Well, without such a recipe the likelihood of making progress toward the ideal is much less likely. Also, the recipe can serve as a guide for evaluating a work setting, and deciding whether you want to join (or stay). Last, knowing the recipe empowers you to possibly create ways to meet at least some of the core needs for yourself, and perhaps even your coworkers.</p><h3>1. Meaning and Purpose</h3><p>Satisfying work is purposeful; it makes a difference. It doesn’t have to be world-changing in impact, but it’s necessary and contributes to some larger goal. Ideally, your work clearly makes a difference to someone somewhere. However, many of us work in specialized areas within large organizations. In those cases, it is important to be able to identify how what you do at work fits within the larger context, and the value of what you do as a contribution to the end goals that are meaningful.</p><h3>2. Respect and Fairness</h3><p>In a satisfying work setting, everyone feels respected as an individual and believes that everyone is treated fairly. That doesn’t mean that everyone has to like each other, or even get along, but there isn’t the perception that some people are put down or treated unequally. As a result, people feel safe being themselves. A key ingredient of an unhealthy workplace is the experience of a blame culture, which I wrote about here, or the perception that some people are treated differently because they are either scapegoats or “favorites” of management, or the group as a whole.</p><h3>3. Autonomy and Choice</h3><p>Generally we prefer more rather than less choice and control over what we do and how we do it. In fact, humans tend to actively resist encroachment on their autonomy. So, a great way to discourage people is to insist that they have to do something, specifying when and how it has to be done in a rigid, limited way. Depending on the work, such specification may be necessary. In that case, it’s important to emphasize that the rigidity is necessary because of the nature of the work or final product, and not simply because of a supervisor’s needs for power or control. Ideally, workers are given as much latitude as possible as to when and how their work is done.</p><h3>4. Camaraderie and Teamwork</h3><p>Humans are social creatures, and working in a socially supportive setting is important for work satisfaction. Ideally you like the people with whom you work, share some degree of affinity or fellowship, and the group functions well as a cohesive team with a shared identity and mission. The antithesis of camaraderie and teamwork is the formation of cliques and widespread gossip, which I wrote about here.</p><h3>5. Improvement Focus</h3><p>People performing meaningful work want to do a good job. So, a satisfying work setting includes a shared focus on excellence and continued improvement. Ideally, everyone on the team is invested in doing their best, and helping each other develop professionally. So, candid constructive feedback is the norm, and is provided and received comfortably and appreciated.</p><h3>6. Recognition</h3><p>We need to be “seen” as individuals, and in a satisfying work environment, people feel valued as individuals. Each person’s contributions are recognized by management and the group as a whole. In a healthy work culture, excellence and successes are openly celebrated and rewarded.</p><h3>In Closing</h3><p>It’s easy to see how particular aspects of the most satisfying work settings are dependent on each other, and synergistically result in a happy, healthy workplace. For example, respect and fairness are prerequisites for camaraderie and teamwork. And an improvement focus and recognition are ingredients that enhance each other.</p>', 'id_25', '24', '5', '', 'March 12, 2024', 'March 12, 2024');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `authors`
+--
+
+CREATE TABLE `authors` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(512) DEFAULT NULL,
+  `lastname` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `firstname`, `lastname`) VALUES
+(1, 'Alex', 'Armitage'),
+(2, 'Fynn', 'Badgley'),
+(3, 'Zhen Siang', 'Yang'),
+(4, 'Scott ', 'Gilberston'),
+(5, 'Ken', 'Lee'),
+(6, 'Maurice', 'Collins'),
+(7, 'Colin', 'Ryan'),
+(8, 'Ann', 'O\'Dea'),
+(9, 'Tony', 'O\'sullivan'),
+(10, 'George', 'Murgatroyd'),
+(11, 'Andrew', 'Hutchinson'),
+(12, 'April', 'Rubin'),
+(13, 'Tevah', 'Platt'),
+(14, 'Matt', 'G. Southern'),
+(15, 'Kieren', 'Williams'),
+(16, 'Philip', 'Mon'),
+(17, 'Thomas', 'Moore'),
+(18, 'Tom', 'Clarke'),
+(19, 'Sarah', 'Maguire'),
+(20, 'Peter', 'Slattery'),
+(21, 'Howard', 'J. Rankin'),
+(22, 'Raymond', 'Leone'),
+(23, 'Suzette', 'Glasner'),
+(24, 'Michael', 'W Wlederman');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Photograpy'),
+(2, 'Technology'),
+(3, 'Social Media'),
+(4, 'World'),
+(5, 'Psychology');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`id`, `name`) VALUES
+(1, 'Dublin, Ireland'),
+(2, ''),
+(3, ''),
+(4, '');
+
 --
 -- Indexes for dumped tables
 --
@@ -82,6 +167,24 @@ ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `authors`
+--
+ALTER TABLE `authors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -90,6 +193,24 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `authors`
+--
+ALTER TABLE `authors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
