@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+<?php
+require_once "./author.php";
+require_once "./category.php";
+require_once "./location.php";
+require_once "./story.php";
+
+$mainStorie = Story::findAll($options = array('limit' => 1, 'offset' => 9));
+
+$travelBlock = Story::findByCategory(3, $options = array('limit' => 9, 'offset' => 0));
+
+$photoBlock = Story::findByCategory(1, $options = array('limit' => 5, 'offset' => 0));
+
+$photoBlockS1 = $photoBlock[0];
+$photoBlockS2 = $photoBlock[1];
+$photoBlockS3 = $photoBlock[2];
+$photoBlockS4 = $photoBlock[3];
+$photoBlockS5 = $photoBlock[4];
+
+echo $photoBlockS2 -> headline;
+
+
+$authorId = 7;
+$stories = Story::findByAuthor($authorId, $options = array('limit' => 3, 'offset' => 2));
+
+$myId = 5;
+$mainStory = Story::findById($myId);  
+?>
+
+
 <html lang="en">
 
 <head>
@@ -11,7 +39,7 @@
     <link rel="stylesheet" href="CSS/reset.css" />
     <link rel="stylesheet" href="CSS/grid.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Nichita Condrea Draft</title>
+    <title>Global Lens</title>
 </head>
 
 <body>
@@ -97,17 +125,18 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     </section>
 
+
+
+    <!-- Photography session -->
     <section class="Photography">
         <div class="container">
             <h2 class="sub-title width-12">
                 Photography
             </h2>
+            <!-- Tall component left side -->
             <div class="width-3 portrude tallComponent">
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
@@ -117,9 +146,15 @@
                     </div>
                 </div>
             </div>
+            <!-- Top section -->
             <div class="width-9 combined">
                 <div class="width-9 holder top">
                     <div class="width-3 portrude mediumComponent">
+                        <style>
+                            .tallComponent{
+                                background-image: ;
+                            }
+                        </style>
                         <div class="whiteBox">
                             <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                             <div class="category">
@@ -138,6 +173,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- bottom section -->
                 <div class="width-9 holder">
                     <div class="width-6 portrude longComponent">
                         <div class="whiteBox">
