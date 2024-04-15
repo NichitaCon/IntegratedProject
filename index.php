@@ -16,7 +16,7 @@ $photoBlockS3 = $photoBlock[2];
 $photoBlockS4 = $photoBlock[3];
 $photoBlockS5 = $photoBlock[4];
 
-echo $photoBlockS2 -> headline;
+echo $photoBlockS2 -> img_url;
 
 
 $authorId = 7;
@@ -53,7 +53,7 @@ $mainStory = Story::findById($myId);
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author">US interest rates</p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ $mainStory = Story::findById($myId);
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author">US interest rates</p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ $mainStory = Story::findById($myId);
                     <div class="whiteBox">
                         <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                         <div class="category">
-                            <p class="topic">US interest rates</p>
+                            <p class="author">US interest rates</p>
                             <p class="date">3 HOURS AGO</p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ $mainStory = Story::findById($myId);
                     <div class="whiteBox">
                         <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                         <div class="category">
-                            <p class="topic">US interest rates</p>
+                            <p class="author">US interest rates</p>
                             <p class="date">3 HOURS AGO</p>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ $mainStory = Story::findById($myId);
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author">US interest rates</p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ $mainStory = Story::findById($myId);
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author">US interest rates</p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ $mainStory = Story::findById($myId);
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author">US interest rates</p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
@@ -136,66 +136,82 @@ $mainStory = Story::findById($myId);
             <h2 class="sub-title width-12">
                 Photography
             </h2>
-            <!-- Tall component left side -->
+
+            <!-- Tall component left side 1-->
+            <?php  { ?>
             <div class="width-3 portrude tallComponent">
+                <style>
+                    .tallComponent {
+                        background-image: url("images/<?=$photoBlockS1 -> img_url ?>");
+                    }
+                </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($photoBlockS1->headline, 0 , 52) ?></h2>
                     <div class="category">
-                        <p class="topic">US interest rates</p>
+                        <p class="author"><?= Author::findById($photoBlockS1->author_id)->first_name . " " . Author::findById($photoBlockS1->author_id)->last_name ?></p>
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
+                
             </div>
+
             <!-- Top section -->
             <div class="width-9 combined">
                 <div class="width-9 holder top">
                     <div class="width-3 portrude mediumComponent">
                         <style>
-                            .tallComponent{
-                                background-image: ;
+                            .mediumComponent {
+                                background-image: url("images/<?=$photoBlockS2 -> img_url ?>");
                             }
                         </style>
                         <div class="whiteBox">
                             <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                             <div class="category">
-                                <p class="topic">US interest rates</p>
+                                <p class="author">US interest rates</p>
                                 <p class="date">3 HOURS AGO</p>
                             </div>
                         </div>
                     </div>
                     <div class="width-6 portrude longComponent">
+                        <style>
+                            .longComponent {
+                                background-image: url("images/<?=$photoBlockS3 -> img_url ?>");
+                            }
+                        </style>
                         <div class="whiteBox">
                             <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                             <div class="category">
-                                <p class="topic">US interest rates</p>
+                                <p class="author">US interest rates</p>
                                 <p class="date">3 HOURS AGO</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- bottom section -->
                 <div class="width-9 holder">
                     <div class="width-6 portrude longComponent">
                         <div class="whiteBox">
                             <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                             <div class="category">
-                                <p class="topic">US interest rates</p>
+                                <p class="author">US interest rates</p>
                                 <p class="date">3 HOURS AGO</p>
                             </div>
                         </div>
                     </div>
+                    
                     <!-- cardComponent -->
                     <div class="width-3 portrude cardComponent">
                         <div class="whiteBox">
                             <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                             <div class="category">
-                                <p class="topic">US interest rates</p>
+                                <p class="author">US interest rates</p>
                                 <p class="date">3 HOURS AGO</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+                <?php } ?>
             </div>
 
 

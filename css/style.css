@@ -101,7 +101,7 @@ header {
   flex-direction: row;
 }
 
-.mediumComponent p.topic {
+.mediumComponent p.author {
   padding-bottom: 0px;
   font-size: 12px;
 }
@@ -141,7 +141,7 @@ header {
 }
 
 .tallComponent {
-  background-color: blue;
+ 
   border-radius: 16px;
   display: flex;
   height: 535px;
@@ -159,7 +159,7 @@ header {
   padding-bottom: 10px;
 }
 
-.tallComponent p.topic {
+.tallComponent p.author {
   padding-bottom: 3px;
 }
 
@@ -200,8 +200,8 @@ header {
   width: 308px;
 }
 
-p.topic {
-  color: #252422;
+p.author {
+  color: #413f3c;
   font-size: 18px;
   font-weight: 600;
   line-height: normal;
