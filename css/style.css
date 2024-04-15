@@ -4,10 +4,15 @@ body {
 }
 
 h2 {
-  color: #181818;
-  font-weight: 700;
+  color: #292929;
+  font-weight: 800;
   line-height: 28px;
   font-size: 24px;
+}
+
+.Photography {
+  background: linear-gradient(180deg, #eaeaea00 0%, #FFF 10.56%, #FFF 85.29%, #eaeaea00 100%);
+  
 }
 
 h2.sub-title {
@@ -17,7 +22,7 @@ h2.sub-title {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -5.25px;
+  letter-spacing: -2px;
 }
 
 header h1 {
@@ -77,15 +82,14 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  background-size: cover;
   border-radius: 16px;
-  background: url(/images/id_4.webp) lightgray 50% / cover no-repeat;
   box-shadow: -6px -6px 15px 0px #fafafa, 6px 6px 15px 0px #dadada;
 }
 
 .mediumComponent .whiteBox {
   display: flex;
   width: 277px;
-  height: 105px;
   padding: 11px 13px 10px 13px;
   flex-direction: column;
   justify-content: space-between;
@@ -113,11 +117,13 @@ header {
 .mediumComponent h2 {
   color: #181818;
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 21px;
+  padding-bottom: 6px;
 }
 
 .largeComponent {
+  background-size: cover;
   border-radius: 16px;
   display: inline-flex;
   height: 535px;
@@ -141,7 +147,7 @@ header {
 }
 
 .tallComponent {
- 
+  background-size: cover;
   border-radius: 16px;
   display: flex;
   height: 535px;
@@ -151,7 +157,6 @@ header {
 }
 
 .tallComponent .whiteBox {
-  height: 189px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -160,10 +165,15 @@ header {
 }
 
 .tallComponent p.author {
-  padding-bottom: 3px;
+  padding-bottom: 4px;
+}
+
+.tallComponent h2{
+  padding-bottom: 8px;
 }
 
 .cardComponent {
+  background-size: cover;
   display: inline-flex;
   width: 297px;
   border-radius: 16px;
@@ -178,6 +188,7 @@ header {
 }
 
 .longComponent {
+  background-size: cover;
   border-radius: 16px;
   display: inline-flex;
   height: 255px;
@@ -185,7 +196,7 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: red;
+  background-color: rgb(0, 255, 234);
 }
 
 .longComponent .whiteBox {
@@ -198,6 +209,10 @@ header {
 
 .longComponent h2 {
   width: 308px;
+}
+
+.longComponent .category {
+  align-items: end;
 }
 
 p.author {
@@ -214,7 +229,6 @@ p.date {
   color: rgb(233, 152, 1);
 }
 
-.Photography {
-    background: linear-gradient(180deg, #eaeaea00 0%, #FFF 10.56%, #FFF 85.29%, #eaeaea00 100%);
-    
-}
+
+
+
