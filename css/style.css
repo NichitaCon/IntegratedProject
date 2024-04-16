@@ -10,8 +10,15 @@ h2 {
   font-size: 24px;
 }
 
-.Photography {
-  background: linear-gradient(180deg, #eaeaea00 0%, #FFF 10.56%, #FFF 85.29%, #eaeaea00 100%);
+.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.whiteBG {
+  padding-top: 45px;
+  padding-bottom: 90px;
+  background: linear-gradient(180deg, #eaeaea00 0%, #FFF 10%, #FFF 90%, #eaeaea00 100%);
   
 }
 
@@ -229,6 +236,12 @@ p.date {
   color: rgb(233, 152, 1);
 }
 
-
-
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  height: 400px;
+  background: linear-gradient(180deg, rgba(238, 238, 238, 0.00) 0%, rgba(50, 50, 50, 0.90) 9.5%, #1E1E1E 100%);
+}
 
