@@ -4,7 +4,7 @@ require_once "./category.php";
 require_once "./location.php";
 require_once "./story.php";
 
-$mainStory = Story::findAll($options = array('limit' => 1, 'offset' => 9));
+$mainStory = Story::findAll($options = array('limit' => 25, 'offset' => 0));
 
 
 
@@ -54,8 +54,22 @@ $psychBlockS5 = $psychBlock[4];
 $authorId = 7;
 $stories = Story::findByAuthor($authorId, $options = array('limit' => 3, 'offset' => 2));
 
-$myId = 5;
-$mainStory = Story::findById($myId);
+// $myId = 5;
+// $mainStory = Story::findById($myId);
+
+$mainStoryID1 = 1;
+$mainStoryID2 = 1;
+$mainStoryID3 = 1;
+$mainStoryID4 = 1;
+$mainStoryID5 = 1;
+
+$mainStory1 = Story::findById($mainStoryID1);
+$mainStory2 = Story::findById($mainStoryID2);
+$mainStory3 = Story::findById($mainStoryID3);
+$mainStory4 = Story::findById($mainStoryID4);
+$mainStory5 = Story::findById($mainStoryID5);
+
+echo $mainStory1->headline;
 ?>
 
 
@@ -81,7 +95,12 @@ $mainStory = Story::findById($myId);
     <section class="components">
         <div class="container">
             <!-- largeComponent -->
-            <div class="width-6 portrude largeComponent">
+            <a href="singlepage.php?id=<?=$photoBlockS1->id ?>" class="width-6 portrude largeComponent">
+                    <style>
+                        .topStory .tallComponent {
+                            background-image: url("images/<?= $photoBlockS1->img_url ?>");
+                        }
+                    </style>
                 <div class="whiteBox">
                     <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
                     <div class="category">
@@ -89,7 +108,7 @@ $mainStory = Story::findById($myId);
                         <p class="date">3 HOURS AGO</p>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- tallComponent -->
             <div class="width-3 portrude tallComponent">
