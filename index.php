@@ -57,19 +57,23 @@ $stories = Story::findByAuthor($authorId, $options = array('limit' => 3, 'offset
 // $myId = 5;
 // $mainStory = Story::findById($myId);
 
-$mainStoryID1 = 1;
-$mainStoryID2 = 1;
-$mainStoryID3 = 1;
-$mainStoryID4 = 1;
-$mainStoryID5 = 1;
+$mainStoryID1 = 8;
+$mainStoryID2 = 7;
+$mainStoryID3 = 13;
+$mainStoryID4 = 14;
+$mainStoryID5 = 18;
+$mainStoryID6 = 21;
+$mainStoryID7 = 1;
 
 $mainStory1 = Story::findById($mainStoryID1);
 $mainStory2 = Story::findById($mainStoryID2);
 $mainStory3 = Story::findById($mainStoryID3);
 $mainStory4 = Story::findById($mainStoryID4);
 $mainStory5 = Story::findById($mainStoryID5);
+$mainStory6 = Story::findById($mainStoryID6);
+$mainStory7 = Story::findById($mainStoryID7);
 
-echo $mainStory1->headline;
+// echo $mainStory1->headline;
 ?>
 
 
@@ -92,90 +96,120 @@ echo $mainStory1->headline;
     <header>
         <h1>Global lens</h1>
     </header>
-    <section class="components">
+    <section class="topStory">
         <div class="container">
             <!-- largeComponent -->
-            <a href="singlepage.php?id=<?=$photoBlockS1->id ?>" class="width-6 portrude largeComponent">
+            <a href="singlepage.php?id=<?=$mainStory1->id ?>" class="width-6 portrude largeComponent">
                     <style>
-                        .topStory .tallComponent {
-                            background-image: url("images/<?= $photoBlockS1->img_url ?>");
+                        .topStory .largeComponent {
+                            background-image: url("images/<?= $mainStory1->img_url ?>");
                         }
                     </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($mainStory1->headline, 0, 63) ?></h2>
                     <div class="category">
-                        <p class="author">US interest rates</p>
-                        <p class="date">3 HOURS AGO</p>
+                        <p class="author"><?= Author::findById($mainStory1->author_id)->first_name . " " . Author::findById($mainStory1->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory1->created_at, 0, 52) ?></p>
                     </div>
                 </div>
             </a>
 
             <!-- tallComponent -->
-            <div class="width-3 portrude tallComponent">
+            <a href="singlepage.php?id=<?=$mainStory2->id ?>" class="width-3 portrude tallComponent">
+                    <style>
+                        .topStory .tallComponent {
+                            background-image: url("images/<?= $mainStory2->img_url ?>");
+                        }
+                    </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($mainStory2->headline, 0, 63) ?></h2>
                     <div class="category">
-                        <p class="author">US interest rates</p>
-                        <p class="date">3 HOURS AGO</p>
+                        <p class="author"><?= Author::findById($mainStory2->author_id)->first_name . " " . Author::findById($mainStory2->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory2->created_at, 0, 52) ?></p>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <div class="width-3 space-between">
                 <!-- cardComponent -->
-                <div class="width-3 portrude cardComponent">
+                <a href="singlepage.php?id=<?=$mainStory3->id ?>" class="width-3 portrude cardComponent ver1">
+                    <style>
+                        .topStory .cardComponent.ver1 {
+                            background-image: url("images/<?= $mainStory3->img_url ?>");
+                        }
+                    </style>
                     <div class="whiteBox">
-                        <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
-                        <div class="category">
-                            <p class="author">US interest rates</p>
-                            <p class="date">3 HOURS AGO</p>
-                        </div>
+                    <h2><?= substr($mainStory3->headline, 0, 63) ?></h2>
+                    <div class="category">
+                        <p class="author"><?= Author::findById($mainStory3->author_id)->first_name . " " . Author::findById($mainStory3->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory3->created_at, 0, 52) ?></p>
                     </div>
                 </div>
+                </a>
 
                 <!-- mediumComponent -->
-                <div class="width-3 portrude mediumComponent">
-                    <div class="whiteBox">
-                        <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
-                        <div class="category">
-                            <p class="author">US interest rates</p>
-                            <p class="date">3 HOURS AGO</p>
-                        </div>
+                <a href="singlepage.php?id=<?=$mainStory4->id ?>" class="width-3 portrude mediumComponent ver1">
+                    <style>
+                        .topStory .mediumComponent.ver1 {
+                            background-image: url("images/<?= $mainStory4->img_url ?>");
+                        }
+                    </style>
+                <div class="whiteBox">
+                    <h2><?= substr($mainStory4->headline, 0, 63) ?></h2>
+                    <div class="category">
+                        <p class="author"><?= Author::findById($mainStory4->author_id)->first_name . " " . Author::findById($mainStory4->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory4->created_at, 0, 52) ?></p>
                     </div>
                 </div>
+                </a>
             </div>
 
             <!-- mediumComponent -->
-            <div class="width-3 portrude mediumComponent">
+            <a href="singlepage.php?id=<?=$mainStory5->id ?>" class="width-3 portrude mediumComponent ver2">
+            <style>
+                        .topStory .mediumComponent.ver2 {
+                            background-image: url("images/<?= $mainStory5->img_url ?>");
+                        }
+                    </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($mainStory5->headline, 0, 63) ?></h2>
                     <div class="category">
-                        <p class="author">US interest rates</p>
-                        <p class="date">3 HOURS AGO</p>
+                        <p class="author"><?= Author::findById($mainStory5->author_id)->first_name . " " . Author::findById($mainStory5->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory5->created_at, 0, 52) ?></p>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- longComponent -->
-            <div class="width-6 portrude longComponent">
+            <a href="singlepage.php?id=<?=$mainStory6->id ?>" class="width-6 portrude longComponent">
+                    <style>
+                        .topStory .longComponent {
+                            background-image: url("images/<?= $mainStory6->img_url ?>");
+                        }
+                    </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($mainStory6->headline, 0, 63) ?></h2>
                     <div class="category">
-                        <p class="author">US interest rates</p>
-                        <p class="date">3 HOURS AGO</p>
+                        <p class="author"><?= Author::findById($mainStory6->author_id)->first_name . " " . Author::findById($mainStory6->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory6->created_at, 0, 52) ?></p>
                     </div>
                 </div>
-            </div>
+            </a>
             <!-- cardComponent -->
-            <div class="width-3 portrude cardComponent">
+            <a href="singlepage.php?id=<?=$mainStory7->id ?>" class="width-3 portrude cardComponent ver2">
+                    <style>
+                        .topStory .cardComponent.ver2 {
+                            background-image: url("images/<?= $mainStory7->img_url ?>");
+                        }
+                    </style>
                 <div class="whiteBox">
-                    <h2>Strong US growth boosts expectation that Fed will delay cutting rates</h2>
+                    <h2><?= substr($mainStory7->headline, 0, 63) ?></h2>
                     <div class="category">
-                        <p class="author">US interest rates</p>
-                        <p class="date">3 HOURS AGO</p>
+                        <p class="author"><?= Author::findById($mainStory7->author_id)->first_name . " " . Author::findById($mainStory7->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($mainStory7->created_at, 0, 52) ?></p>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
