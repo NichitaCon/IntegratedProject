@@ -96,6 +96,40 @@ $mainStory7 = Story::findById($mainStoryID7);
     <header>
         <h1>Global lens</h1>
     </header>
+
+    <section class="topStory">
+        <div class="container">
+            <div class="width-12 flex">
+            <!-- largeComponent -->
+            <?php foreach($photoBlock as $key => $value) { ?>
+
+                <?php if($key==2 || $key==3) { ?>
+                    <a href="singlepage.php?id=<?=$value->id ?>" class="portrude largeComponent">
+                <?php } else { ?>
+                    <a href="singlepage.php?id=<?=$value->id ?>" class="portrude longComponent">
+                <?php } ?>
+
+                    <style>
+                        .topStory .largeComponent {
+                            background-image: url("images/<?= $value->img_url ?>");
+                        }
+                    </style>
+                <div class="whiteBox">
+                    <h2><?= substr($value->headline, 0, 63) ?></h2>
+                    <div class="category">
+                        <p class="author"><?= Author::findById($value->author_id)->first_name . " " . Author::findById($value->author_id)->last_name ?></p>
+                        <p class="date"><?= substr($value->created_at, 0, 52) ?></p>
+                    </div>
+                </div>
+            </a>
+                    <?php } ?>
+            <!-- tallComponent -->
+          
+                    </div>
+        </div>
+    </section>
+
+
     <section class="topStory">
         <div class="container">
             <!-- largeComponent -->
@@ -154,13 +188,13 @@ $mainStory7 = Story::findById($mainStoryID7);
                             background-image: url("images/<?= $mainStory4->img_url ?>");
                         }
                     </style>
-                <div class="whiteBox">
-                    <h2><?= substr($mainStory4->headline, 0, 63) ?></h2>
-                    <div class="category">
-                        <p class="author"><?= Author::findById($mainStory4->author_id)->first_name . " " . Author::findById($mainStory4->author_id)->last_name ?></p>
-                        <p class="date"><?= substr($mainStory4->created_at, 0, 52) ?></p>
+                    <div class="whiteBox">
+                        <h2><?= substr($mainStory4->headline, 0, 63) ?></h2>
+                        <div class="category">
+                            <p class="author"><?= Author::findById($mainStory4->author_id)->first_name . " " . Author::findById($mainStory4->author_id)->last_name ?></p>
+                            <p class="date"><?= substr($mainStory4->created_at, 0, 52) ?></p>
+                        </div>
                     </div>
-                </div>
                 </a>
             </div>
 
