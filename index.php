@@ -96,7 +96,11 @@ $mainStory7 = Story::findById($mainStoryID7);
     <header>
         <h1>Global lens</h1>
     </header>
-
+    <section class="add_new">
+        <div class="container">
+            <a href="index(php).php">link to other site</a>
+        </div>
+    </section>
     <section class="topStory">
         <div class="container">
             <div class="width-12 flex">
