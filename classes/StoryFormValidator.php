@@ -40,20 +40,19 @@ class StoryFormValidator extends FormValidator {
         }
 
         //author id
-        if (!$this->isPresent("author_id")) {
-            $this->errors["author_id"] = "Please enter a author_id";
-        }
-        else if (!$this->maxLength("author_id", 3)) {
-            $this->errors["author_id"] = "Please enter a author_id under 3 characters";
-        }       
+        // if (!$this->isPresent("author_id")) {
+        //     $this->errors["author_id"] = "Please enter a author_id";
+        // }
+        // else if (!$this->maxLength("author_id", 3)) {
+        //     $this->errors["author_id"] = "Please enter a author_id under 3 characters";
+        // }       
 
-        //categoryid
-        $validCategory = ["1", "2", "3", "4", "5"];
-        if (!$this->isPresent("category_id")) {
-            $this->errors["category_id"] = "Please choose a category";
+        //category
+        if (!$this->isPresent("category_name")) {
+            $this->errors["category_name"] = "Please enter a category";
         }
-        else if (!$this->isElement("category_id", $validCategory)) {
-            $this->errors["category_id"] = "Please choose a valid category_id";
+        else if (!$this->maxLength("category_name", 20)) {
+            $this->errors["category_name"] = "Please enter a valid category under 20 characters";
         }
 
         //Created at

@@ -167,5 +167,41 @@ class Author {
 
         return $author;
     }
+
+    public static function findByFullName($firstName, $lastName) {
+        $author = null;
+
+        try {
+            $db = new DB();
+            $db->open();
+            $conn = $db->getConnection();
+
+            $sql = "SELECT * FROM authors WHERE first_name = :first_name AND last_name = :last_name";
+            $params = [
+                ":first_name" => $firstName,
+                ":last_name" => $lastName
+            ];
+            $stmt = $conn->prepare($sql);
+            $status = $stmt->execute($params);
+
+            if (!$status) {
+                $error_info = $stmt->errorInfo();
+                $message = "SQLSTATE error code = ".$error_info[0]."; error message = ".$error_info[2];
+                throw new Exception("Database error executing database query: " . $message);
+            }
+
+            if ($stmt->rowCount() !== 0) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $author = new Author($row);
+            }
+        }
+        finally {
+            if ($db !== null && $db->isOpen()) {
+                $db->close();
+            }
+        }
+
+        return $author;
+    }
 }
 ?>

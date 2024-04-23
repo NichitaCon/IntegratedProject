@@ -47,17 +47,17 @@ class Story {
                 ":img_url"     => $this->img_url,
                 ":author_id"   => $this->author_id,
                 ":category_id" => $this->category_id,
-                ":created_at" => $this->created_at,
-
+                ":created_at"  => $this->created_at,
+                ":user_created" => 1
             ];
-
+    
             if ($this->id === null) {
                 $sql = "INSERT INTO stories (" . 
                        "headline, article, img_url, " . 
-                       "author_id, category_id, created_at" . 
+                       "author_id, category_id, created_at, user_created" . 
                        ") VALUES (" . 
                        ":headline, :article, :img_url, " . 
-                       ":author_id, :category_id, :created_at" . 
+                       ":author_id, :category_id, :created_at, :user_created" . 
                        ")";
             }
             else {
@@ -67,7 +67,8 @@ class Story {
                        "img_url     = :img_url, " .
                        "author_id   = :author_id, " .
                        "category_id = :category_id, " .
-                       "updated_at  = :updated_at " .
+                       "updated_at  = :updated_at, " .
+                       "user_created = :user_created " .
                        "WHERE id = :id";
                        
                 $params[":id"] = $this->id;

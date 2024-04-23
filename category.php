@@ -160,5 +160,41 @@ class Category {
 
         return $category;
     }
+
+    public static function findByName($name) {
+        $category = null;
+    
+        try {
+            $db = new DB();
+            $db->open();
+            $conn = $db->getConnection();
+    
+            $sql = "SELECT * FROM categories WHERE name = :name";
+            $params = [
+                ":name" => $name
+            ];
+            $stmt = $conn->prepare($sql);
+            $status = $stmt->execute($params);
+    
+            if (!$status) {
+                $error_info = $stmt->errorInfo();
+                $message = "SQLSTATE error code = ".$error_info[0]."; error message = ".$error_info[2];
+                throw new Exception("Database error executing database query: " . $message);
+            }
+    
+            if ($stmt->rowCount() !== 0) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $category = new Category($row);
+            }
+        }
+        finally {
+            if ($db !== null && $db->isOpen()) {
+                $db->close();
+            }
+        }
+    
+        return $category;
+    }
+
 }
 ?>
