@@ -3,7 +3,7 @@ require_once "./author.php";
 require_once "./category.php";
 require_once "./location.php";
 require_once "./story.php";
-require_once "classes/MovieFormValidator.php";
+require_once "classes/StoryFormValidator.php";
 require_once "classes/FormValidator.php";
 
 function redirect($url) {

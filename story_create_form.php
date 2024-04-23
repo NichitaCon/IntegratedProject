@@ -50,18 +50,18 @@ echo "</pre>";
             </p>
             <p>
                 author_id: 
-                <input type="text" name="box_office" value="<?= old("box_office") ?>">
-                <span class="error"><?= error("box_office") ?><span>
+                <input type="text" name="author_id" value="<?= old("author_id") ?>">
+                <span class="error"><?= error("author_id") ?><span>
             </p>
             <p>
                 category:
                 <select name="category_id">
                     <option value="">Please choose a category...</option>
                     <option value="1" <?= chosen("category_id", "1") ? "selected" : "" ?>>Photography</option>
-                    <option value="2" <?= chosen("category_id", "2") ? "selected" : "" ?>>Social Media</option>
-                    <option value="3" <?= chosen("category_id", "3") ? "selected" : "" ?>>Christopher Nolan</option>
-                    <option value="4" <?= chosen("category_id", "4") ? "selected" : "" ?>>Quentin Tarantino</option>
-                    <option value="5" <?= chosen("category_id", "5") ? "selected" : "" ?>>Peter Jackson</option>
+                    <option value="2" <?= chosen("category_id", "2") ? "selected" : "" ?>>Technology</option>
+                    <option value="3" <?= chosen("category_id", "3") ? "selected" : "" ?>>Social Media</option>
+                    <option value="4" <?= chosen("category_id", "4") ? "selected" : "" ?>>World</option>
+                    <option value="5" <?= chosen("category_id", "5") ? "selected" : "" ?>>Psychology</option>
                 </select>
                 <span class="error"><?= error("category_id") ?><span>
             </p>
