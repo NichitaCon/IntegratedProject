@@ -31,13 +31,25 @@ $author = Author::findById($singleStory->author_id);
     </header>
 
     <div class="container">
+        
+
         <div class="width-4 newsImage">
+        
             <img class="portrude" src="images/<?= $singleStory->img_url ?>" />
         </div>
         <div class="width-8">
+
+        
             <div class="article">
                 <!-- <h3><?= $category->name ?></h3> -->
-                <h2><?= $singleStory->headline ?></h2>
+                <div class="title">
+                    <h2><?= $singleStory->headline ?></h2>
+                    <form action="stories_readLater.php" method="POST">
+                        <input type="hidden" name="story_id" value="<?= $myId ?>">
+                        <button type="submit">Add to Read Later</button>
+                    </form>
+                </div>
+                
                 <div class="text">
                     <?= $singleStory->article ?>
                 </div>
@@ -47,7 +59,16 @@ $author = Author::findById($singleStory->author_id);
     </div>
 
     <footer>
-        Footer!
+        <div class="container">
+            <div class="width-3">
+                <img src="./images/iadtLogo.png" alt="">
+            </div>
+            <div class="width-5"></div>
+            <div class="width-4 flexy">
+            <p>Made by Nichita Condrea</p>
+            <a href="debug.php">Link to "debugging/test" site</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

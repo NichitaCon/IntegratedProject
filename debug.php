@@ -27,6 +27,7 @@ $stories = Story::findAll();
     <?php unset($_SESSION["flash"]); ?>
     <?php } ?>
     <h2>stories</h2>
+    <a href="index.php">Home</a>
     <p><a href="story_create_form.php">Create a new story</a></p>
     <?php if(empty($stories)){ ?>
         <p>There are no stories</p>
@@ -35,32 +36,27 @@ $stories = Story::findAll();
         <table>
             <thead>
                 <tr>
+                    <th>id</th>
                     <th>headline</th>
-                    <th></th>
                     <th>img_url</th>
                     <th>author_id</th>
                     <th>category_id</th>
-
+                    <th>created_at</th>
+                    <th>read_later</th>
+                    <th>user_created</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($stories as $story) {?>
                     <tr>
-                        <td>
-                        <a href="story_view.php?id=<?= $story->id ?>">
-                            <?= $story->headline ?>
-                        </a>
-                        </td>
+                        <td><?= $story->id ?></td>
                         <td><?= $story->headline ?></td>
                         <td><?= $story->img_url ?></td>
                         <td><?= $story->author_id ?></td>
                         <td><?= $story->category_id ?></td>
-                        <td>
-                            <a href="story_edit_form.php?id=<?= $story->id ?>">Edit</a>
-                            <a href="story_delete.php?id=<?= $story->id ?>">
-                                Delete
-                            </a>
-                        </td>
+                        <td><?= $story->created_at ?></td>
+                        <td><?= $story->read_later ?></td>
+                        <td><?= $story->user_created ?></td>
                     </tr>
                 <?php }?>
 

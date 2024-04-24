@@ -6,7 +6,13 @@ require_once "./story.php";
 
 $mainStory = Story::findAll($options = array('limit' => 25, 'offset' => 0));
 
+$userCreatedBlock = Story::findByUserCreated(1);
 
+$readLaterBlock = Story::findByReadLater(1);
+
+// $userCreatedBlock1 = $userCreatedBlock[1];
+
+// echo $userCreatedBlock1->id;
 
 $photoBlock = Story::findByCategory(1, $options = array('limit' => 5, 'offset' => 0));
 
@@ -96,43 +102,6 @@ $mainStory7 = Story::findById($mainStoryID7);
     <header>
         <h1>Global lens</h1>
     </header>
-    <section class="add_new">
-        <div class="container">
-            <a href="index(php).php">link to other site</a>
-        </div>
-    </section>
-    <section class="topStory">
-        <div class="container">
-            <div class="width-12 flex">
-            <!-- largeComponent -->
-            <?php foreach($photoBlock as $key => $value) { ?>
-
-                <?php if($key==2 || $key==3) { ?>
-                    <a href="singlepage.php?id=<?=$value->id ?>" class="portrude largeComponent">
-                <?php } else { ?>
-                    <a href="singlepage.php?id=<?=$value->id ?>" class="portrude longComponent">
-                <?php } ?>
-
-                    <style>
-                        .topStory .largeComponent {
-                            background-image: url("images/<?= $value->img_url ?>");
-                        }
-                    </style>
-                <div class="whiteBox">
-                    <h2><?= substr($value->headline, 0, 63) ?></h2>
-                    <div class="category">
-                        <p class="author"><?= Author::findById($value->author_id)->first_name . " " . Author::findById($value->author_id)->last_name ?></p>
-                        <p class="date"><?= substr($value->created_at, 0, 52) ?></p>
-                    </div>
-                </div>
-            </a>
-                    <?php } ?>
-            <!-- tallComponent -->
-          
-                    </div>
-        </div>
-    </section>
-
 
     <section class="topStory">
         <div class="container">
@@ -251,6 +220,41 @@ $mainStory7 = Story::findById($mainStoryID7);
         </div>
     </section>
 
+
+    <section class="carousel userCreated">
+        <div class="container">
+            <h2 class="sub-title width-12">
+                User Created.
+            </h2>
+            <ul>
+                <?php foreach ($userCreatedBlock as $s) { ?>
+                    <li class="width-3 miniComponent">
+                        <a href="singlepage.php?id=<?=$s->id ?>" class="miniComponent">
+                            <img src="<?= "images/$s->img_url" ?>" alt="">
+                            <div class="miniText">
+                                <h2>
+                                    <?= $s->headline ?>
+                                </h2>
+                                <div class="category">
+                                    <p class="author"><?= Author::findById($s->author_id)->first_name . " " . Author::findById($s->author_id)->last_name ?></p>
+                                    <p class="date"><?= substr($s->created_at, 0, 52) ?></p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </li>
+                <?php } ?>
+                    <li class="width-3 miniComponent new">
+                        <a href="story_create_form.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71" fill="none">
+                            <path d="M35.3553 70.7107V35.3553M35.3553 35.3553V0M35.3553 35.3553H0M35.3553 35.3553H70.7107" stroke="#3A3A3A" stroke-width="5"/>
+                            </svg>
+                        </a>
+                        
+                    </li>
+            </ul>
+        </div>
+    </section>
 
 
     <!-- Photography section -->
@@ -474,6 +478,41 @@ $mainStory7 = Story::findById($mainStoryID7);
                 </a>
 
 
+        </div>
+    </section>
+
+    <section class="carousel readLater">
+        <div class="container">
+            <h2 class="sub-title width-12">
+                Read Later.
+            </h2>
+            <ul>
+                <?php foreach ($readLaterBlock as $s) { ?>
+                    <li class="width-3 miniComponent">
+                        <a href="singlepage.php?id=<?=$s->id ?>" class="miniComponent">
+                            <img src="<?= "images/$s->img_url" ?>" alt="">
+                            <div class="miniText">
+                                <h2>
+                                    <?= $s->headline ?>
+                                </h2>
+                                <div class="category">
+                                    <p class="author"><?= Author::findById($s->author_id)->first_name . " " . Author::findById($s->author_id)->last_name ?></p>
+                                    <p class="date"><?= substr($s->created_at, 0, 52) ?></p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </li>
+                <?php } ?>
+                    <!-- <li class="width-3 miniComponent new">
+                        <a href="story_create_form.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71" fill="none">
+                            <path d="M35.3553 70.7107V35.3553M35.3553 35.3553V0M35.3553 35.3553H0M35.3553 35.3553H70.7107" stroke="#3A3A3A" stroke-width="5"/>
+                            </svg>
+                        </a>
+                        
+                    </li> -->
+            </ul>
         </div>
     </section>
 
@@ -808,7 +847,16 @@ $mainStory7 = Story::findById($mainStoryID7);
     </section>
 
     <footer>
-        Footer!
+        <div class="container">
+            <div class="width-3">
+                <img src="./images/iadtLogo.png" alt="">
+            </div>
+            <div class="width-5"></div>
+            <div class="width-4 flexy">
+            <p>Made by Nichita Condrea</p>
+            <a href="debug.php">Link to "debugging/test" site</a>
+            </div>
+        </div>
     </footer>
 </body>
 

@@ -10,7 +10,6 @@ class Story {
     public $img_url;
     public $author_id;
     public $category_id;
-
     public $created_at;
     public $updated_at;
 
@@ -24,6 +23,8 @@ class Story {
             $this->img_url     = $props["img_url"];
             $this->author_id   = $props["author_id"];
             $this->category_id = $props["category_id"];
+            $this->read_later = $props["read_later"];
+            $this->user_created = $props["user_created"];
 
             
             if (array_key_exists("created_at", $props)) {
@@ -249,5 +250,100 @@ class Story {
 
         return $story;
     }
+
+    public static function findByUserCreated($userCreated) {
+        try {
+            $db = new DB();
+            $db->open();
+            $conn = $db->getConnection();
+    
+            $sql = "SELECT * FROM stories WHERE user_created = :user_created";
+            $params = [
+                ":user_created" => $userCreated
+            ];
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($params);
+    
+            $stories = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $stories[] = new Story($row);
+            }
+    
+            return $stories;
+        }
+        catch (PDOException $e) {
+            // Handle database connection errors
+            throw new Exception("Database error: " . $e->getMessage());
+        }
+        finally {
+            if (isset($db) && $db->isOpen()) {
+                $db->close();
+            }
+        }
+    }
+
+    public static function findByReadLater($readLater) {
+        try {
+            $db = new DB();
+            $db->open();
+            $conn = $db->getConnection();
+
+            $sql = "SELECT * FROM stories WHERE read_later = :read_later";
+            $params = [
+                ":read_later" => $readLater
+            ];
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($params);
+
+            $stories = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $stories[] = new Story($row);
+            }
+
+            return $stories;
+        }
+        catch (PDOException $e) {
+            // Handle database connection errors
+            throw new Exception("Database error: " . $e->getMessage());
+        }
+        finally {
+            if (isset($db) && $db->isOpen()) {
+                $db->close();
+            }
+        }
+    }
+
+    public function addToReadLater() {
+        try {
+            $db = new DB();
+            $db->open();
+            $conn = $db->getConnection();
+    
+            // Update the read_later column for the specified story_id
+            $sql = "UPDATE stories SET read_later = 1 WHERE id = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id', $this->id);
+            $status = $stmt->execute();
+    
+            if (!$status) {
+                $error_info = $stmt->errorInfo();
+                $message = "SQLSTATE error code = ".$error_info[0]."; error message = ".$error_info[2];
+                throw new Exception("Database error executing database query: " . $message);
+            }
+    
+            // Optionally, you can check if the update was successful
+            // if ($stmt->rowCount() !== 1) {
+            //     throw new Exception("Failed to update read later status.");
+            // }
+        } catch (PDOException $e) {
+            // Handle database connection errors
+            throw new Exception("Database error: " . $e->getMessage());
+        } finally {
+            if (isset($db) && $db->isOpen()) {
+                $db->close();
+            }
+        }
+    }
+    
 }
 ?>
