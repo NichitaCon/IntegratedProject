@@ -221,7 +221,7 @@ $mainStory7 = Story::findById($mainStoryID7);
     </section>
 
 
-    <section class="carousel userCreated">
+    <section class="loop userCreated">
         <div class="container">
             <h2 class="sub-title width-12">
                 User Created.
@@ -481,7 +481,7 @@ $mainStory7 = Story::findById($mainStoryID7);
         </div>
     </section>
 
-    <section class="carousel readLater">
+    <section class="loop readLater">
         <div class="container">
             <h2 class="sub-title width-12">
                 Read Later.

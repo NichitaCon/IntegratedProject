@@ -31,10 +31,7 @@ $author = Author::findById($singleStory->author_id);
     </header>
 
     <div class="container">
-        
-
         <div class="width-4 newsImage">
-        
             <img class="portrude" src="images/<?= $singleStory->img_url ?>" />
         </div>
         <div class="width-8">
